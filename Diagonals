@@ -17,7 +17,7 @@ public class MyDraw extends View {
         paint.setColor(Color.BLUE);
 
         int x1 = 0;
-        int y1 = 1500;
+        int y1 = 1700;
         int x2 = 80;
         int y2 = getHeight();
 
