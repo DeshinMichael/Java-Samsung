@@ -8,12 +8,12 @@ public class pointOnPlane {
     public void printPoint() {
         System.out.println(x + " " + y);
     }
-    public double xSet(double x) {
+    public double getX(double x) {
         this.x = x;
-        return this.x;
+        return x;
     }
-    public double ySet(double y) {
+    public double getY(double y) {
         this.y = y;
-        return this.y;
+        return y;
     }
 }

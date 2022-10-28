@@ -2,6 +2,7 @@ package com.Training;
 
 public class NDrob {
     private int numer, denom;
+    public static int count = 0;
 
     public NDrob() {
         numer = 1;
