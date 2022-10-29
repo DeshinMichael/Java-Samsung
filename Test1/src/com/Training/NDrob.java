@@ -41,16 +41,22 @@ public class NDrob {
         result.denom = denom * secondFactor.numer;
         return result;
     }
-    public NDrob sum(NDrob secondFactor) {
+    public NDrob add(NDrob secondFactor) {
         NDrob result = new NDrob();
-        result.numer = numer + secondFactor.numer;
-        result.denom = denom;
+        result.numer = numer * secondFactor.denom;
+        result.denom = denom * secondFactor.denom;
+        secondFactor.numer = secondFactor.numer * denom;
+        secondFactor.denom = secondFactor.denom * denom;
+        result.numer = result.numer + secondFactor.numer;
         return result;
     }
     public NDrob sub(NDrob secondFactor) {
         NDrob result = new NDrob();
-        result.numer = numer - secondFactor.numer;
-        result.denom = denom;
+        result.numer = numer * secondFactor.denom;
+        result.denom = denom * secondFactor.denom;
+        secondFactor.numer = secondFactor.numer * denom;
+        secondFactor.denom = secondFactor.denom * denom;
+        result.numer = result.numer - secondFactor.numer;
         return result;
     }
 }
