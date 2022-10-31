@@ -1,11 +1,13 @@
+package com.example.target;
+
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.view.View;
 
-public class MyDraw extends View {
-    MyDraw(Context context) {
+public class Target extends View {
+    Target(Context context) {
         super(context);
     }
     @Override

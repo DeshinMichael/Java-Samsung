@@ -1,3 +1,5 @@
+package com.TrianglePerimetr;
+
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -9,7 +11,7 @@ public class Geom {
         System.out.printf("%.10f", Geom.trianglePerimetr(-15809, 20304, 18912, -10503, 10020, 22779));
 
     }
-    static double trianglePerimetr(int x1, int y1, int x2, int y2, int x3, int y3) {
+    static double trianglePerimetr(long x1, long y1, long x2, long y2, long x3, long y3) {
         double P = 0;
         double a = 0;
         double b = 0;
@@ -20,7 +22,7 @@ public class Geom {
         P = a + b + c;
         return P;
     }
-    static double segmentLength(int x1, int y1, int x2, int y2) {
+    static double segmentLength(long x1, long y1, long x2, long y2) {
         double l = 0;
         double S = Math.sqrt((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1));
         l += S;
