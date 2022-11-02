@@ -13,4 +13,9 @@ public class Employee extends Person {
  public String toString() {
   return "(" + getName() + "," + " " + getAge() + "," + " " + company + ")";
  }
+
+ @Override
+ public String work() {
+  return "Manager";
+ }
 }
