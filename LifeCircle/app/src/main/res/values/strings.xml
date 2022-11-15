@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">LifeCircle</string>
+    <string name="test_name">Тест по теме:</string>
+    <string name="quest_name">Вопрос №</string>
+    <string name="quest">Сам вопрос</string>
+    <string name="ask">ответить</string>
+    <string name="num_quest">1/n</string>
+    <string name="var_1">Вариант 1</string>
+    <string name="var_2">Вариант 2</string>
+    <string name="var_3">Вариант 3</string>
+    <string name="var_4">Вариант 4</string>
 </resources>
