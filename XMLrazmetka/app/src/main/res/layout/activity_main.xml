@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical"
-    android:background="#E1EFF8">
+    android:background="#E1E6F8">
 
     <TextView
         android:layout_width="match_parent"
@@ -22,28 +22,31 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/num_quest"
-        android:textSize="16sp"
-        android:textColor="#050C8E"
-        android:layout_margin="10dp"
-        android:padding="10dp"
-        android:gravity="center_horizontal"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:text="@string/text_quest"
         android:textSize="16sp"
         android:textColor="#050C8E"
         android:layout_margin="10dp"
         android:padding="10dp"
-        android:gravity="center_horizontal"/>
+        android:gravity="center_horizontal"
+        android:id="@+id/num_quest"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/quest"
+        android:textSize="16sp"
+        android:textColor="#050C8E"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:gravity="center_horizontal"
+        android:id="@+id/text_quest"/>
     <RadioGroup
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:id="@+id/var_answer">
         <RadioButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Вар1"
+            android:text="Вариант 1"
             android:textSize="16sp"
             android:textColor="#050C8E"
             android:layout_margin="10dp"
@@ -51,7 +54,7 @@
         <RadioButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Вар2"
+            android:text="Вариант 2"
             android:textSize="16sp"
             android:textColor="#050C8E"
             android:layout_margin="10dp"
@@ -59,7 +62,7 @@
         <RadioButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Вар3"
+            android:text="Вариант 3"
             android:textSize="16sp"
             android:textColor="#050C8E"
             android:layout_margin="10dp"
@@ -67,7 +70,7 @@
         <RadioButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Вар4"
+            android:text="Вариант 4"
             android:textSize="16sp"
             android:textColor="#050C8E"
             android:layout_margin="10dp"
@@ -81,12 +84,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/send"
+            android:id="@+id/send_answer"
             android:backgroundTint="#CADEF1"
             android:textSize="16sp"
             android:textColor="#050C8E"
             android:layout_margin="10dp"
             android:padding="10dp"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:onClick="sendAnswer"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -97,9 +102,6 @@
             android:padding="10dp"
             android:layout_weight="1"
             android:gravity="right"
-            />
+            android:id="@+id/progress_text"/>
     </LinearLayout>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
 </LinearLayout>
