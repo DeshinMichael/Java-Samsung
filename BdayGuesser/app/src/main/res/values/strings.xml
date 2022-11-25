@@ -1,0 +1,65 @@
+<resources>
+    <string name="app_name">BdayGuesser</string>
+    <string-array name="names">
+        <item>АНатуральный</item>
+        <item>ВМодный</item>
+        <item>БМилый</item>
+        <item>ГАвтомобильный</item>
+        <item>ДМногоскоростной</item>
+        <item>ЕЭластичный</item>
+        <item>ЖВысококачественный</item>
+        <item>ЗСимпатичный</item>
+        <item>ИОчень большой</item>
+        <item>КУниверсальный</item>
+        <item>ЛШирокоугольный</item>
+        <item>МИгровой</item>
+        <item>НВолшебный</item>
+        <item>ОБыстрый</item>
+        <item>ПУмный</item>
+        <item>РКомпактный</item>
+        <item>СОчищающий</item>
+        <item>ТБеспроводной</item>
+        <item>УСолнцезащитный</item>
+        <item>ФКружевной</item>
+        <item>ХПортативный</item>
+        <item>ЦСкладной</item>
+        <item>ЧУспокаивающий</item>
+        <item>ШСтильный</item>
+        <item>ЭМагнитный</item>
+        <item>ЮГладкий</item>
+        <item>ЯСовременный</item>
+    </string-array>
+    <string-array name="days">
+        <item>Поп ит</item>
+        <item>Аниме кепочка</item>
+        <item>Чехол для бутылки пива</item>
+        <item>Подставка с милым котом</item>
+        <item>Косплей кепочка</item>
+        <item>Намордник в виде клюва</item>
+        <item>Костюм клоуна</item>
+        <item>Порошок для пламени</item>
+        <item>Крючок для ловли карпа</item>
+        <item>Шапка-зонтик</item>
+        <item>Крест Доминика Торето</item>
+        <item>Футболка с загаром</item>
+        <item>Шаблон для стрижки</item>
+        <item>Выдавливателей прыщей</item>
+        <item>Свечи в форме катуса</item>
+        <item>Вантуз-наклейка</item>
+        <item>Пальцевый футбол</item>
+        <item>Вакуумный насос</item>
+        <item>Маска из пальцев</item>
+        <item>Имитатор несчастной лисы</item>
+        <item>Свадебное платье для собаки</item>
+        <item>Качели для хомяка</item>
+        <item>Одеяло в виде лаваша</item>
+        <item>Настольный камень</item>
+        <item>Мини-сауна</item>
+        <item>Мешок для купания кота</item>
+        <item>Кастет для мяса</item>
+        <item>Шлем для курицы</item>
+        <item>Тряпка</item>
+        <item>Браслет-фляга</item>
+        <item>Поводок для ребёнка</item>
+    </string-array>
+</resources>
