@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:text="Фамилия"
+            android:padding="8dp">
+
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:text="Имя"
+            android:padding="8dp">
+
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:text="Отчество"
+            android:padding="8dp">
+
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:text="Год"
+            android:padding="8dp">
+
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:text="Школа"
+            android:padding="8dp">
+
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:text="Город"
+            android:padding="8dp">
+
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:text="Опыт программирования"
+            android:padding="8dp">
+
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:text="Знание языков программирования"
+            android:padding="8dp">
+
+        </TextView>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:layout_width="100dp"
+            android:layout_height="35dp"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
+            android:textSize="12sp">
+
+        </EditText>
+
+        <EditText
+            android:layout_width="100dp"
+            android:layout_height="35dp"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"
+            android:textSize="12sp">
+
+        </EditText>
+
+        <EditText
+            android:layout_width="100dp"
+            android:layout_height="35dp"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"
+            android:textSize="12sp">
+
+        </EditText>
+
+        <EditText
+            android:layout_width="100dp"
+            android:layout_height="35dp"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
+            android:textSize="12sp">
+
+        </EditText>
+
+        <EditText
+            android:layout_width="100dp"
+            android:layout_height="35dp"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"
+            android:textSize="12sp">
+
+        </EditText>
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:layout_width="50dp"
+                android:layout_height="35dp"
+                tools:ignore="TouchTargetSizeCheck">
+
+            </RadioButton>
+
+            <RadioButton
+                android:layout_width="50dp"
+                android:layout_height="35dp"
+                tools:ignore="TouchTargetSizeCheck">
+
+            </RadioButton>
+        </RadioGroup>
+
+        <CheckBox
+            android:layout_width="32dp"
+            android:layout_height="35dp"
+            tools:ignore="TouchTargetSizeCheck">
+
+        </CheckBox>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <CalendarView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </CalendarView>
+
+    </LinearLayout>
+
+</LinearLayout>
