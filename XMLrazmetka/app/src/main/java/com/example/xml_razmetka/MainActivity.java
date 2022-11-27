@@ -88,22 +88,6 @@ public class MainActivity extends AppCompatActivity {
                     ((RadioButton) varAnswers.getChildAt(i)).setText(tmp);
                 }
             }
-            if (countQuest == test.length / 5) {
-                for (int i = 0; i < varAnswers.getChildCount(); i++) {
-                    radioButton = (RadioButton)varAnswers.getChildAt(i);
-                    int numAnswer = (countQuest - 1) * 5;
-                    if (radioButton.isChecked()) {
-                        for (int j = 0; j < varAnswers.getChildCount(); j++) {
-                            String rightAnswer = test[numAnswer + j + 1];
-                            String nowAnswer = radioButton.getText() + "+";
-                            if (nowAnswer.equals(rightAnswer)) {
-                                countRightQuest += 1;
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
         } else {
             numQuest.setText("Результат:");
             textQuest.setText(countRightQuest + " из " + (countQuest-1));
@@ -129,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.exit:
+                this.finishAffinity();
         }
         return true;
     }

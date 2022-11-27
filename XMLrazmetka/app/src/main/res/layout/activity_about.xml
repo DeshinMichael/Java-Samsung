@@ -12,7 +12,7 @@
         android:text="Моя программа:\nТестик\n\n\nВерсия:\n1.0\n\n\nАвтор программы:\nДешин Михаил\n\n\nОписание:\nЭта программа нужна для проверки знаний по математике\n\n\nЗадача:\nНужно выбрать один вариант из четырёх перечисленных\n\n\nИтог:\nПрограмма выдаёт количество правильных ответов"
         android:textSize="24sp"
         android:textColor="#088BE8"
-        android:layout_marginVertical="100dp"
+        android:layout_marginVertical="10dp"
         android:padding="10dp"
         android:gravity="center_horizontal"
         android:isScrollContainer="true">
