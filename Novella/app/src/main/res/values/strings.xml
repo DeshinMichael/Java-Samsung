@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Novella</string>
+    <string name="first_quest">Первый день будет очень насыщенный! Чем же мне заняться?</string>
+    <string name="first_var1">Пойду в качалку что ли! Давно там не бывал</string>
+    <string name="second_var1">На пару схожу! А то от родителей получу за то, что прогуливаю</string>
+    <string name="third_var1">Пойду поплаваю! Получу удовольствие и прокачаюсь</string>
+    <string name="second_quest">Второй день не маловажный! Куда бы лучше пойти?</string>
+    <string name="first_var2">В кино! Недавно классный фильм вышел</string>
+    <string name="second_var2">В школу Самсунг! Прокучаю мозги</string>
+    <string name="third_var2">Останусь дома! Сделаю ОФП и спать</string>
+</resources>
