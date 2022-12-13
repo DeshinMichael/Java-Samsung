@@ -1,7 +1,7 @@
 package com.example.novella;
 
 public class Story {
-    private Situation start_story;
+    Situation start_story;
     public Situation current_situation;
     Story() {
         start_story = new Situation("первая день","Первый день будет очень насыщенный! Чем же мне заняться?",3, 0, 0, 0);

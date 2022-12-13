@@ -31,19 +31,21 @@ public class MainActivity extends AppCompatActivity {
         characterKnowledge = (TextView)findViewById(R.id.knowledgeText);
         characterStrength = (TextView)findViewById(R.id.strengthText);
 
-        Character character = new Character(name.getText().toString());
-        Game game = new Game();
+        Character manager = new Character(name.getText().toString());
         Story story = new Story();
-        game.main();
+        if(!("".equals(name.getText().toString()))){
+            Game game = new Game(manager);
+        }
 
         actionChooseBt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(story.isEnd()) {
 
+                } else {
+                    double num = Double.parseDouble(actionChooseBt.getText().toString());
+                    story.go((int) num);
                 }
-                double num = Double.parseDouble(actionChooseBt.getText().toString());
-                story.go((int)num);
             }
         });
         nameChooseBt.setOnClickListener(new View.OnClickListener() {
@@ -54,6 +56,16 @@ public class MainActivity extends AppCompatActivity {
                 characterHealth.setVisibility(View.INVISIBLE);
                 characterKnowledge.setVisibility(View.INVISIBLE);
                 characterStrength.setVisibility(View.INVISIBLE);
+                numberEdit.setVisibility(View.VISIBLE);
+                actionChooseBt.setVisibility(View.VISIBLE);
+                questText.setVisibility(View.VISIBLE);
+                action1Text.setVisibility(View.VISIBLE);
+                action2Text.setVisibility(View.VISIBLE);
+                action3Text.setVisibility(View.VISIBLE);
+                questText.setText("Первый день будет очень насыщенный! Чем же мне заняться?");
+                action1Text.setText("Пойду в качалку что ли! Давно там не бывал");
+                action2Text.setText("На пару схожу! А то от родителей получу за то, что прогуливаю");
+                action3Text.setText("Пойду поплаваю! Получу удовольствие и прокачаюсь");
             }
         });
     }

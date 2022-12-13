@@ -1,8 +1,14 @@
 package com.example.novella;
 
-public class Game extends MainActivity{
+public class Game {
     public static Character manager;
     public static Story story;
+
+    public Game(Character manager2) {
+        manager.name = manager2.name;
+        Game.main();
+    }
+
     public static void main() {
         story = new Story();
         while (true){
