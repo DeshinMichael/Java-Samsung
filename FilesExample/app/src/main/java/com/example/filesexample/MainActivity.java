@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     Button saveButton, loadButton;
     TextView loadText;
     final String FILENAME = "money.txt";
+    String[] array;
+    boolean isWent = false;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,11 @@ public class MainActivity extends AppCompatActivity {
                     bw.write(infoText.getText().toString());
                     bw.write("\n");
                     bw.close();
+                    String str = "";
+                    str += infoText.getText().toString() + " ";
+                    array = str.split(" ");
+                    if (array.length > 0)
+                        isWent = true;
                     infoText.setText("");
                 } catch (FileNotFoundException e) {
                     loadText.setText("Невозможно сохранить. Файл не найден");
@@ -58,15 +65,22 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    BufferedReader br = new BufferedReader(new InputStreamReader(
-                            openFileInput(FILENAME)));
-                    String lastStr = null, line;
-                    while ((line = br.readLine()) != null) {
-                        lastStr = line;
+                    if (!isWent) {
+                        BufferedReader br = new BufferedReader(new InputStreamReader(
+                                openFileInput(FILENAME)));
+                        String s = br.readLine();
+                        while (s != null) {
+                            loadText.append(s);
+                            s = br.readLine();
+                            loadText.append("\n");
+                        }
+                        br.close();
+                    } else {
+                        for (String s : array) {
+                            loadText.append(s);
+                            loadText.append("\n");
+                        }
                     }
-                    loadText.append(lastStr);
-                    loadText.append("\n");
-                    br.close();
                 } catch (FileNotFoundException e) {
                     loadText.setText("Невозможно сохранить. Файл не найден");
                 } catch (IOException e) {
