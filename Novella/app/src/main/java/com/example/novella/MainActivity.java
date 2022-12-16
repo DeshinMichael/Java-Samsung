@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     EditText name, numberEdit;
     Button actionChooseBt, nameChooseBt;
     TextView action1Text, action2Text, action3Text, characterHealth, characterKnowledge, characterStrength, questText;
+    int kSituation = 0;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,18 +34,50 @@ public class MainActivity extends AppCompatActivity {
 
         Character manager = new Character(name.getText().toString());
         Story story = new Story();
-        if(!("".equals(name.getText().toString()))){
-            Game game = new Game(manager);
-        }
 
         actionChooseBt.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
-                if(story.isEnd()) {
-
+                if (numberEdit.getText().toString().equals("1")) {
+                    story.current_situation = story.start_story.direction[0];
+                    manager.H+=story.current_situation.dH;
+                    manager.K+=story.current_situation.dK;
+                    manager.S+=story.current_situation.dS;
+                    questText.setText("(1)Пойду в качалку что ли! Давно там не бывал");
+                    kSituation += 1;
+                } else if (numberEdit.getText().toString().equals("2")) {
+                    story.current_situation = story.start_story.direction[1];
+                    manager.H+=story.current_situation.dH;
+                    manager.K+=story.current_situation.dK;
+                    manager.S+=story.current_situation.dS;
+                    questText.setText("(2)На пару схожу! А то от родителей получу за то, что прогуливаю");
+                    kSituation += 1;
+                } else if (numberEdit.getText().toString().equals("3")) {
+                    story.current_situation = story.start_story.direction[2];
+                    manager.H+=story.current_situation.dH;
+                    manager.K+=story.current_situation.dK;
+                    manager.S+=story.current_situation.dS;
+                    questText.setText("(3)Пойду поплаваю! Получу удовольствие и прокачаюсь");
+                    kSituation += 1;
+                }
+                if(kSituation == 1) {
+                    name.setVisibility(View.VISIBLE);
+                    characterHealth.setVisibility(View.VISIBLE);
+                    characterKnowledge.setVisibility(View.VISIBLE);
+                    characterStrength.setVisibility(View.VISIBLE);
+                    numberEdit.setVisibility(View.INVISIBLE);
+                    actionChooseBt.setVisibility(View.INVISIBLE);
+                    action1Text.setVisibility(View.INVISIBLE);
+                    action2Text.setVisibility(View.INVISIBLE);
+                    action3Text.setVisibility(View.INVISIBLE);
+                    characterHealth.setText("Здоровье: " + manager.H);
+                    characterKnowledge.setText("Знания: " + manager.K);
+                    characterStrength.setText("Сила: " + manager.S);
                 } else {
                     double num = Double.parseDouble(actionChooseBt.getText().toString());
-                    story.go((int) num);
+                    int num2 = (int) num;
+                    story.go(num2);
                 }
             }
         });
@@ -63,9 +96,9 @@ public class MainActivity extends AppCompatActivity {
                 action2Text.setVisibility(View.VISIBLE);
                 action3Text.setVisibility(View.VISIBLE);
                 questText.setText("Первый день будет очень насыщенный! Чем же мне заняться?");
-                action1Text.setText("Пойду в качалку что ли! Давно там не бывал");
-                action2Text.setText("На пару схожу! А то от родителей получу за то, что прогуливаю");
-                action3Text.setText("Пойду поплаваю! Получу удовольствие и прокачаюсь");
+                action1Text.setText("(1)Пойду в качалку что ли! Давно там не бывал");
+                action2Text.setText("(2)На пару схожу! А то от родителей получу за то, что прогуливаю");
+                action3Text.setText("(3)Пойду поплаваю! Получу удовольствие и прокачаюсь");
             }
         });
     }
