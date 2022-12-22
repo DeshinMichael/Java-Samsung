@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CurrentTaskFragment"
+    android:orientation="vertical"
+    android:background="#B7C5ED">
+
+    <!-- TODO: Update blank fragment layout -->
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/one_task"
+        android:id="@+id/current_task"/>
+
+    <EditText
+        android:id="@+id/regular_task"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/regular_task"
+        tools:ignore="TouchTargetSizeCheck" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/write_task_text"
+        android:id="@+id/write_task_btn"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/current_task_list"/>
+
+</LinearLayout>

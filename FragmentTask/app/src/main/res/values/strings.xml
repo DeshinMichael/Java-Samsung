@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">FragmentTask</string>
+    <string name="title_text">Планировщик задач</string>
+    <string name="current_text">Текущие задачи</string>
+    <string name="complete_text">Завершённые задачи</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="write_task_text">Записать задачу</string>
+    <string name="repeating_text">Повторяющиеся задачи</string>
+    <string name="one_task">Введите одноразовую задачу</string>
+    <string name="regular_task">Введите регулярную задачу</string>
+</resources>
