@@ -19,11 +19,11 @@ public class SurfaceThread extends Thread{
     }
     public void run() {
         while (isRun){
-            Canvas canvas = null;
             nowTime = System.currentTimeMillis();
             elapsedTime = nowTime - prevTime;
             if (elapsedTime > 50) {
                 prevTime = nowTime;
+                Canvas canvas = null;
                 canvas = holder.lockCanvas();
                 synchronized (holder) {
                     mySurface.draw(canvas);
