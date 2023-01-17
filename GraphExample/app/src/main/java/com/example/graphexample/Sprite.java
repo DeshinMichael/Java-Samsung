@@ -6,49 +6,48 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 
 public class Sprite {
-    Bitmap image;
+
     MySurface mySurface;
+    Bitmap image;
     float x, y;
     float dx, dy;
-    int width, height;
-    final int IMAGE_ROWS = 4, IMAGE_COLUMNS = 3;
-    int current_frame = 0;
-    int direction = 1;
+    final int IMAGE_ROWS = 4, IMAGE_COLUMN = 3;
+    int current_frame = 0; //номер кадра в строке
+    int direction = 1; //номер направления (строки в спрайте)
     Paint paint;
-    float wCanvas, hCanvas;
+    int widthFrame, heightFrame;
+    int widthCanvas, heightCanvas;
 
-    public Sprite(Bitmap image, MySurface mySurface, float x, float y) {
-        this.image = image;
+    public Sprite(Bitmap image, MySurface mySurface, float x, float y){
         this.mySurface = mySurface;
-        this.x = x;//Это для ситуации появления персонажа в точке касания или в заранее заданном месте
+        this.image = image;
+        this.x = x;
         this.y = y;
         paint = new Paint();
-        width = image.getWidth()/IMAGE_COLUMNS;
-        height = image.getHeight()/IMAGE_ROWS;
+        widthFrame = image.getWidth()/IMAGE_COLUMN;
+        heightFrame = image.getHeight()/IMAGE_ROWS;
     }
-
-    public void draw(Canvas canvas) {
-        wCanvas = canvas.getWidth();
-        hCanvas = canvas.getHeight();
+    public void draw(Canvas canvas){
+        widthCanvas = canvas.getWidth();
+        heightCanvas = canvas.getHeight();
         controlRoute();
-        Rect src = new Rect(current_frame *  width, direction * height, current_frame * width + width, direction * height + height);
-        Rect dst = new Rect((int)x, (int)y, (int)x + width, (int)y + height);
+        Rect src = new Rect(widthFrame * current_frame, heightFrame * direction,
+                widthFrame * (current_frame + 1), heightFrame * direction + heightFrame);
+        Rect dst = new Rect((int)x, (int)y, (int)(x + widthFrame), (int)(y + heightFrame));
         canvas.drawBitmap(image, src, dst, paint);
-
     }
 
-    public void controlRoute() {
-        if (x < 10 || x > wCanvas - width)
+    private void controlRoute(){
+        if(x < 10 || x > widthCanvas - widthFrame)
             dx = -dx;
-        if (y < 10 || y > hCanvas - height)
+        if(y < 10 || y > heightCanvas - heightFrame)
             dy = -dy;
-
-        current_frame = ++current_frame % IMAGE_COLUMNS;
+        current_frame = ++current_frame % IMAGE_COLUMN;
         x += dx;
         y += dy;
+        //TODO определить direction => направление движения
     }
-
-    public void calcSteps(float touchX, float touchY) {
+    void calcSteps(float touchX, float touchY){
         dx = (touchX - x) / 50;
         dy = (touchY - y) / 50;
     }

@@ -14,23 +14,23 @@ public class SurfaceThread extends Thread{
         this.holder = holder;
         prevTime = System.currentTimeMillis();
     }
-    public void setRun(boolean isRun) {
+    public void setRun(boolean isRun){
         this.isRun = isRun;
     }
+    @Override
     public void run() {
         while (isRun){
+            Canvas canvas = null;
             nowTime = System.currentTimeMillis();
             elapsedTime = nowTime - prevTime;
-            if (elapsedTime > 50) {
+            if(elapsedTime > 50) {
                 prevTime = nowTime;
-                Canvas canvas = null;
                 canvas = holder.lockCanvas();
                 synchronized (holder) {
                     mySurface.draw(canvas);
                 }
-                if (canvas != null) {
+                if (canvas != null)
                     holder.unlockCanvasAndPost(canvas);
-                }
             }
         }
     }
