@@ -23,7 +23,7 @@ public class SurfaceThread extends Thread{
             Canvas canvas = null;
             nowTime = System.currentTimeMillis();
             elapsedTime = nowTime - prevTime;
-            if(elapsedTime > 50) {
+            if(elapsedTime > 40) {
                 prevTime = nowTime;
                 canvas = holder.lockCanvas();
                 synchronized (holder) {
