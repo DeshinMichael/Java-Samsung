@@ -18,6 +18,7 @@ public class Diagonals extends View {
         paint.setStyle(Paint.Style.STROKE);
         paint.setColor(Color.BLUE);
 
+
         int x1 = 0;
         int y1 = 1700;
         int x2 = 80;

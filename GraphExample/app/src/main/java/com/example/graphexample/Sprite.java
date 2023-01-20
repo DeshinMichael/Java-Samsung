@@ -46,9 +46,18 @@ public class Sprite {
         x += dx;
         y += dy;
         //TODO определить direction => направление движения
+
     }
     void calcSteps(float touchX, float touchY){
         dx = (touchX - x) / 50;
         dy = (touchY - y) / 50;
+    }
+
+    public void controlIntersect(Rect barRect) {
+        Rect spriteRect = new Rect((int)x, (int)y, (int)x + widthFrame, (int)y + heightFrame);
+        if(spriteRect.intersect(barRect)) {
+            dx = -dx;
+            //действия при столкновении зависят от задуманного геймплея
+        }
     }
 }
