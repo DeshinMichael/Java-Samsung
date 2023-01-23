@@ -51,10 +51,10 @@ public class Sprite {
             direction = 2;
         } else if(mySurface.touchX - x < 0 && (mySurface.touchY - y < 100 || mySurface.touchY - y > -100)) {
             direction = 1;
-        } else if(mySurface.touchY - y > 100) {
-            direction = 3;
-        } else if(mySurface.touchY - y < -100) {
+        } else if(mySurface.touchX - y > 0 && (mySurface.touchY - x < 100 || mySurface.touchY - x > -100)) {
             direction = 0;
+        } else if(mySurface.touchX - y < 0 && (mySurface.touchY - x < 100 || mySurface.touchY - x > -100)) {
+            direction = 3;
         }
 
     }
