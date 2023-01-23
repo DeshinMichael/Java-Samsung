@@ -47,6 +47,16 @@ public class Sprite {
         y += dy;
         //TODO определить direction => направление движения
 
+        if(mySurface.touchX - x > 0 && (mySurface.touchY - y < 100 || mySurface.touchY - y > -100)) {
+            direction = 2;
+        } else if(mySurface.touchX - x < 0 && (mySurface.touchY - y < 100 || mySurface.touchY - y > -100)) {
+            direction = 1;
+        } else if(mySurface.touchY - y > 100) {
+            direction = 3;
+        } else if(mySurface.touchY - y < -100) {
+            direction = 0;
+        }
+
     }
     void calcSteps(float touchX, float touchY){
         dx = (touchX - x) / 50;
@@ -57,6 +67,7 @@ public class Sprite {
         Rect spriteRect = new Rect((int)x, (int)y, (int)x + widthFrame, (int)y + heightFrame);
         if(spriteRect.intersect(barRect)) {
             dx = -dx;
+            dy = -dy;
             //действия при столкновении зависят от задуманного геймплея
         }
     }
