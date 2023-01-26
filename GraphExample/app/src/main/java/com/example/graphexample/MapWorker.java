@@ -53,4 +53,23 @@ public class MapWorker {
             x = 0;
         }
     }
+
+    public void moveMap() {
+        for (int i = hCanvas / textureSize - 1; i > 0; i--) {
+            for (int j = 0; j < map[i].length; j++) {
+                map[i][j] = map[i-1][j];
+            }
+        }
+
+        for (int i = 0; i < 1; i++) {
+            int textureNum = random.nextInt(4);
+            for (int j = 0; j < map[i].length; j++) {
+                if ((j >= (map[i].length - 6) / 2) && (j <= (map[i].length + 6) / 2)) {
+                    map[i][j] = 0; //центр экрана - текстура "коридора"
+                } else {
+                    map[i][j] = textureNum;
+                }
+            }
+        }
+    }
 }

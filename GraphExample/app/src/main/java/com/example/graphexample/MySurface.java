@@ -53,6 +53,7 @@ public class MySurface extends SurfaceView implements SurfaceHolder.Callback {
             isMapGenerate = false;
         }
         mapWorker.draw(canvas);
+        mapWorker.moveMap();
         //imageX += dx;
         //imageY += dy;
         //canvas.drawBitmap(image, imageX, imageY, paint);
