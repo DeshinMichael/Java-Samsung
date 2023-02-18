@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/etElements"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="216dp"
+        android:ems="10"
+        android:hint="Элементы"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvHashset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="HashSet"
+        app:layout_constraintEnd_toEndOf="@+id/etElements"
+        app:layout_constraintStart_toStartOf="@+id/etElements"
+        app:layout_constraintTop_toBottomOf="@+id/etElements" />
+
+    <TextView
+        android:id="@+id/tvTreeset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="TreeSet"
+        app:layout_constraintEnd_toEndOf="@+id/tvHashset"
+        app:layout_constraintStart_toStartOf="@+id/tvHashset"
+        app:layout_constraintTop_toBottomOf="@+id/tvHashset" />
+
+    <Button
+        android:id="@+id/btWrite"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Показать"
+        app:layout_constraintEnd_toEndOf="@+id/btAdd"
+        app:layout_constraintStart_toStartOf="@+id/btAdd"
+        app:layout_constraintTop_toBottomOf="@+id/btAdd" />
+
+    <Button
+        android:id="@+id/btAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Добавить"
+        app:layout_constraintEnd_toEndOf="@+id/tvTreeset"
+        app:layout_constraintStart_toStartOf="@+id/tvTreeset"
+        app:layout_constraintTop_toBottomOf="@+id/tvTreeset" />
+</androidx.constraintlayout.widget.ConstraintLayout>
