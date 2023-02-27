@@ -15,21 +15,26 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.NavigableSet;
 import java.util.Set;
+import java.util.SortedSet;
 import java.util.TreeSet;
 
 public class MainActivity extends AppCompatActivity {
-    LinkedList<Book> booksList = new LinkedList<>();//исходный список книг
+    LinkedList<Book> booksList;//исходный список книг
     ListView listView;
     ArrayAdapter<Book> arrayAdapter;
     SimpleAdapter simpleAdapter;
     Button btShowAll, btnSearch;
     EditText etSearch;
-    Set<Book> booksTreeSet = new TreeSet<>();
+    TreeSet<Book> booksTreeSet = new TreeSet<>();
 
     //список книг под SimpleAdapter
     LinkedList<HashMap<String, Object>> adapterListBooks = new LinkedList<>();
@@ -44,41 +49,21 @@ public class MainActivity extends AppCompatActivity {
         btnSearch = findViewById(R.id.btn_search);
         etSearch = findViewById(R.id.et_search);
 
-        booksList.add(new Book("Азимов А.","Основание", 150, R.drawable.osnovanie));
-        booksList.add(new Book("Гоголь Н.","Шинель", 240, R.drawable.shinel));
-        booksList.add(new Book("Достоевский Ф.М.","Преступление и наказание", 320, R.drawable.prestuplenie));
-        booksList.add(new Book("Гоглоев Евгений","Зерцалия", 210, R.drawable.zertsalia));
-        booksList.add(new Book("Жюль Верн","Пятнадцатилетний капитан", 240, R.drawable.book));
-        booksList.add(new Book("Карл Маркс","Капитал", 240, R.drawable.book));
-        booksList.add(new Book("Гоголь Н.","Мёртвые души", 240, R.drawable.book));
-        booksList.add(new Book("Гоголь Н.","Шинель", 240, R.drawable.book));
-        booksList.add(new Book("Гоголь Н.","Ревизор", 240, R.drawable.book));
-        booksList.add(new Book("Гоголь Н.","Тарас Бульба", 240, R.drawable.book));
-        booksList.add(new Book("Достоевский Ф.М.","Белые ночи", 240, R.drawable.book));
-        booksList.add(new Book("Гоголь Н.","Невский проспект", 240, R.drawable.book));
-        booksList.add(new Book("Достоевский Ф.М.","Идиот", 240, R.drawable.book));
-        booksList.add(new Book("Достоевский Ф.М.","Бедные люди", 240, R.drawable.book));
-        booksList.add(new Book("Толстой Л.Н.","Война и мир", 240, R.drawable.book));
-
-        //готовим список для адаптера
-        for (int i = 0; i < booksList.size(); i++) {
-            HashMap<String, Object> map = new HashMap<>();
-            map.put("author", booksList.get(i).author);
-            map.put("title", booksList.get(i).title);
-            map.put("numpage", booksList.get(i).numPages);
-            map.put("cover", booksList.get(i).cover);
-            adapterListBooks.add(map);
-        }
-
-        //Массив ключей
-        String[] from = {"author", "title", "numpage", "cover"};
-        //Массив идентификаторов разметки
-        int[] to = {R.id.author, R.id.title_book, R.id.numpage, R.id.cover};
-
-        arrayAdapter = new ArrayAdapter<Book>(this, R.layout.list_item, booksList);
-
-        simpleAdapter = new SimpleAdapter(this, adapterListBooks, R.layout.list_item_simple, from, to);
-        listView.setAdapter(simpleAdapter);
+//        booksList.add(new Book("Азимов А.","Основание", 150, R.drawable.osnovanie));
+//        booksList.add(new Book("Гоголь Н.","Шинель", 240, R.drawable.shinel));
+//        booksList.add(new Book("Достоевский Ф.М.","Преступление и наказание", 320, R.drawable.prestuplenie));
+//        booksList.add(new Book("Гоглоев Евгений","Зерцалия", 210, R.drawable.zertsalia));
+//        booksList.add(new Book("Жюль Верн","Пятнадцатилетний капитан", 240, R.drawable.book));
+//        booksList.add(new Book("Карл Маркс","Капитал", 240, R.drawable.book));
+//        booksList.add(new Book("Гоголь Н.","Мёртвые души", 240, R.drawable.book));
+//        booksList.add(new Book("Гоголь Н.","Шинель", 240, R.drawable.book));
+//        booksList.add(new Book("Гоголь Н.","Ревизор", 240, R.drawable.book));
+//        booksList.add(new Book("Гоголь Н.","Тарас Бульба", 240, R.drawable.book));
+//        booksList.add(new Book("Достоевский Ф.М.","Белые ночи", 240, R.drawable.book));
+//        booksList.add(new Book("Гоголь Н.","Невский проспект", 240, R.drawable.book));
+//        booksList.add(new Book("Достоевский Ф.М.","Идиот", 240, R.drawable.book));
+//        booksList.add(new Book("Достоевский Ф.М.","Бедные люди", 240, R.drawable.book));
+//        booksList.add(new Book("Толстой Л.Н.","Война и мир", 240, R.drawable.book));
 
         booksTreeSet.add(new Book("Азимов А.","Основание", 150, R.drawable.osnovanie));
         booksTreeSet.add(new Book("Гоголь Н.","Шинель", 240, R.drawable.shinel));
@@ -96,6 +81,26 @@ public class MainActivity extends AppCompatActivity {
         booksTreeSet.add(new Book("Достоевский Ф.М.","Бедные люди", 240, R.drawable.book));
         booksTreeSet.add(new Book("Толстой Л.Н.","Война и мир", 240, R.drawable.book));
 
+//        //готовим список для адаптера
+//        for (int i = 0; i < booksList.size(); i++) {
+//            HashMap<String, Object> map = new HashMap<>();
+//            map.put("author", booksList.get(i).author);
+//            map.put("title", booksList.get(i).title);
+//            map.put("numpage", booksList.get(i).numPages);
+//            map.put("cover", booksList.get(i).cover);
+//            adapterListBooks.add(map);
+//        }
+//
+//        //Массив ключей
+//        String[] from = {"author", "title", "numpage", "cover"};
+//        //Массив идентификаторов разметки
+//        int[] to = {R.id.author, R.id.title_book, R.id.numpage, R.id.cover};
+//
+//        arrayAdapter = new ArrayAdapter<Book>(this, R.layout.list_item, booksList);
+//
+//        simpleAdapter = new SimpleAdapter(this, adapterListBooks, R.layout.list_item_simple, from, to);
+//        listView.setAdapter(simpleAdapter);
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -111,12 +116,57 @@ public class MainActivity extends AppCompatActivity {
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Iterator<Book> iterator = booksTreeSet.iterator();
-                while(iterator.hasNext()){
-                    if(!(iterator.next().author.equals(etSearch.getText().toString()))){
-                        booksList.remove(iterator.next());
-                    }
+                SortedSet<Book> set = booksTreeSet.subSet(new Book(etSearch.getText().toString(),"", 0, R.drawable.book), true, new Book(etSearch.getText().toString(),"", 0, R.drawable.book), true);
+                booksList = new LinkedList<>(set);
+                for (int i = 0; i < booksList.size(); i++) {
+                    HashMap<String, Object> map = new HashMap<>();
+                    map.put("author", booksList.get(i).author);
+                    map.put("title", booksList.get(i).title);
+                    map.put("numpage", booksList.get(i).numPages);
+                    map.put("cover", booksList.get(i).cover);
+                    adapterListBooks.add(map);
                 }
+
+                //Массив ключей
+                String[] from = {"author", "title", "numpage", "cover"};
+                //Массив идентификаторов разметки
+                int[] to = {R.id.author, R.id.title_book, R.id.numpage, R.id.cover};
+
+                arrayAdapter = new ArrayAdapter<Book>(MainActivity.this, R.layout.list_item, booksList);
+
+                simpleAdapter = new SimpleAdapter(MainActivity.this, adapterListBooks, R.layout.list_item_simple, from, to);
+                listView.setAdapter(simpleAdapter);
+
+                booksList.clear();
+                arrayAdapter.notifyDataSetChanged();
+            }
+        });
+
+        btShowAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                booksList = new LinkedList<>(booksTreeSet);
+                for (int i = 0; i < booksList.size(); i++) {
+                    HashMap<String, Object> map = new HashMap<>();
+                    map.put("author", booksList.get(i).author);
+                    map.put("title", booksList.get(i).title);
+                    map.put("numpage", booksList.get(i).numPages);
+                    map.put("cover", booksList.get(i).cover);
+                    adapterListBooks.add(map);
+                }
+
+                //Массив ключей
+                String[] from = {"author", "title", "numpage", "cover"};
+                //Массив идентификаторов разметки
+                int[] to = {R.id.author, R.id.title_book, R.id.numpage, R.id.cover};
+
+                arrayAdapter = new ArrayAdapter<Book>(MainActivity.this, R.layout.list_item, booksList);
+
+                simpleAdapter = new SimpleAdapter(MainActivity.this, adapterListBooks, R.layout.list_item_simple, from, to);
+                listView.setAdapter(simpleAdapter);
+
+                booksList.clear();
+                arrayAdapter.notifyDataSetChanged();
             }
         });
     }

@@ -1,7 +1,5 @@
 package com.example.listadapter;
 
-import java.util.TreeSet;
-
 public class Book implements Comparable<Book>{
     String author = "";
     String title = "";
@@ -25,9 +23,6 @@ public class Book implements Comparable<Book>{
 
     @Override
     public int compareTo(Book book) {
-        if(book.author.equals(this.author))
-            return 0;
-        else
-            return -1;
+        return this.author.compareTo(book.author);
     }
 }
