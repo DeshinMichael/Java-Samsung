@@ -4,8 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -13,17 +13,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.Toast;
+import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.List;
-import java.util.NavigableSet;
-import java.util.Set;
+import java.util.Map;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
@@ -38,16 +34,24 @@ public class MainActivity extends AppCompatActivity {
 
     //список книг под SimpleAdapter
     LinkedList<HashMap<String, Object>> adapterListBooks = new LinkedList<>();
+
+    //SharedPreferences
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
+    TextView readBook;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        sharedPreferences = getSharedPreferences("myShared", MODE_PRIVATE);
+
         listView = findViewById(R.id.books_list);
         btShowAll = findViewById(R.id.show_all_books);
         btnSearch = findViewById(R.id.btn_search);
         etSearch = findViewById(R.id.et_search);
+        readBook = findViewById(R.id.read_book);
 
 //        booksList.add(new Book("Азимов А.","Основание", 150, R.drawable.osnovanie));
 //        booksList.add(new Book("Гоголь Н.","Шинель", 240, R.drawable.shinel));
@@ -110,6 +114,9 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("numPages", booksList.get(position).numPages);
                 startActivity(intent);
                 //arrayAdapter.notifyDataSetChanged();
+                editor = sharedPreferences.edit();
+                editor.putString("book" + position, booksList.get(position).toString());
+                editor.commit();
             }
         });
 
@@ -169,5 +176,21 @@ public class MainActivity extends AppCompatActivity {
                 arrayAdapter.notifyDataSetChanged();
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        //извлечение 1 записи по конкретному ключу
+        String s = sharedPreferences.getString("book", "Не читал ничего");
+        readBook.setText(s);
+        //извлечение всех данных
+        Map<String, ?> sharedTreeMap = sharedPreferences.getAll();
+        Collection<?> set = sharedTreeMap.values();
+        Iterator<?> iterator = set.iterator();
+        while(iterator.hasNext()) {
+            s = iterator.next().toString() + "\n\n";
+            readBook.append(s);
+        }
     }
 }
