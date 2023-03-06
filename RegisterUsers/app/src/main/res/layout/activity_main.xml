@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Регистрация"
+        android:id="@+id/title"
+        android:textSize="30sp"
+        android:padding="10dp"
+        android:gravity="center_horizontal"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:id="@+id/et_login"
+        android:hint="Введите логин"
+        android:minHeight="48dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:id="@+id/et_password"
+        android:hint="Введите пароль"
+        android:minHeight="48dp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_sign_up"
+        android:padding="15dp"
+        android:layout_margin="5dp"
+        android:text="Sign up"/>
+
+    <Button
+        android:id="@+id/btn_sign_in"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="15dp"
+        android:text="Sign in"
+        android:visibility="gone" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_back"
+        android:padding="15dp"
+        android:layout_margin="5dp"
+        android:text="Back"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/users"
+        android:textSize="20sp"
+        android:padding="10dp"
+        android:gravity="center_horizontal"
+        />
+</LinearLayout>
