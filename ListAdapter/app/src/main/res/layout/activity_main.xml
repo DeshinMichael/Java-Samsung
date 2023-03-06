@@ -46,10 +46,17 @@
         app:layout_constraintEnd_toEndOf="@+id/btn_search"
         app:layout_constraintStart_toStartOf="@+id/btn_search"
         android:id="@+id/show_all_books"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/read_book"
+        app:layout_constraintTop_toBottomOf="@+id/show_all_books"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/show_all_books"
+        app:layout_constraintTop_toBottomOf="@+id/read_book"
         android:id="@+id/books_list" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
