@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:id="@+id/title_text"/>
     <EditText
-        android:id="@+id/et_search"
+        android:id="@+id/et_author"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Введите автора"
@@ -26,31 +26,65 @@
         app:layout_constraintEnd_toEndOf="@+id/title_text"
         app:layout_constraintStart_toStartOf="@+id/title_text"
         app:layout_constraintTop_toBottomOf="@+id/title_text" />
-    <Button
+
+    <EditText
+        android:id="@+id/et_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Найти"
+        android:hint="Введите название"
+        android:minHeight="48dp"
         android:padding="10dp"
-        android:gravity="center_horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/et_search"
-        app:layout_constraintEnd_toEndOf="@+id/et_search"
-        app:layout_constraintStart_toStartOf="@+id/et_search"
-        android:id="@+id/btn_search"/>
-    <Button
+        app:layout_constraintEnd_toEndOf="@+id/et_author"
+        app:layout_constraintStart_toStartOf="@+id/et_author"
+        app:layout_constraintTop_toBottomOf="@+id/et_author" />
+    <EditText
+        android:id="@+id/et_genre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Показать все"
+        android:hint="Введите жанр"
+        android:minHeight="48dp"
         android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/et_name"
+        app:layout_constraintStart_toStartOf="@+id/et_name"
+        app:layout_constraintTop_toBottomOf="@+id/et_name" />
+
+    <EditText
+        android:id="@+id/et_pages"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Введите количество страниц"
+        android:minHeight="48dp"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/et_genre"
+        app:layout_constraintStart_toStartOf="@+id/et_genre"
+        app:layout_constraintTop_toBottomOf="@+id/et_genre" />
+
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/btn_search"
-        app:layout_constraintEnd_toEndOf="@+id/btn_search"
-        app:layout_constraintStart_toStartOf="@+id/btn_search"
-        android:id="@+id/show_all_books"/>
+        android:padding="10dp"
+        android:text="Сохранить"
+        app:layout_constraintEnd_toEndOf="@+id/et_pages"
+        app:layout_constraintStart_toStartOf="@+id/et_pages"
+        app:layout_constraintTop_toBottomOf="@+id/et_pages" />
+
+    <Button
+        android:id="@+id/show_library"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="10dp"
+        android:text="Показать библиотеку"
+        app:layout_constraintEnd_toEndOf="@+id/btn_save"
+        app:layout_constraintStart_toStartOf="@+id/btn_save"
+        app:layout_constraintTop_toBottomOf="@+id/btn_save" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/read_book"
-        app:layout_constraintTop_toBottomOf="@+id/show_all_books"
+        app:layout_constraintTop_toBottomOf="@+id/show_library"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
     <ListView

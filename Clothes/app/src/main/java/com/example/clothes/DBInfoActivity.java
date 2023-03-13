@@ -26,9 +26,9 @@ public class DBInfoActivity extends AppCompatActivity {
         if(cursor != null) {
             //Variant 1 - SimpleAdapter -> HashMap
             //Variant 2 - SimpleCursorAdapter
-            String[] from = {DBOpenHelper.COLUMN_NAME, DBOpenHelper.COLUMN_SIZE, DBOpenHelper.COLUMN_COST,
-                    DBOpenHelper.COLUMN_ARTICLE, DBOpenHelper.COLUMN_COUNT};
-            int[] to = {R.id.name_info, R.id.size_info, R.id.cost_info, R.id.article_info, R.id.count_info};
+            String[] from = {DBOpenHelper.COLUMN_COST, DBOpenHelper.COLUMN_ARTICLE, DBOpenHelper.COLUMN_NAME,
+                    DBOpenHelper.COLUMN_SIZE, DBOpenHelper.COLUMN_COUNT};
+            int[] to = {R.id.cost_info, R.id.article_info, R.id.name_info, R.id.size_info, R.id.count_info};
             SimpleCursorAdapter cursorAdapter = new SimpleCursorAdapter(this, R.layout.list_item, cursor, from, to);
             listView.setAdapter(cursorAdapter);
         }
