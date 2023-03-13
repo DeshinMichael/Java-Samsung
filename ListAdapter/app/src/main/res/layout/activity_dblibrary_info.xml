@@ -7,26 +7,8 @@
     tools:context=".DBLibraryInfoActivity"
     android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/author_info"
-        android:layout_width="wrap_content"
+    <ListView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        android:padding="10dp"
-        android:text="Авторы" />
-
-    <TextView
-        android:id="@+id/genre_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        android:padding="10dp"
-        android:text="Жанры" />
-    <TextView
-        android:id="@+id/name_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        android:padding="10dp"
-        android:text="Названия" />
+        android:id="@+id/list_library"/>
 </LinearLayout>

@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     //DataBase
     DBOpenHelper dbOpenHelper;
     SQLiteDatabase sdb;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         dbOpenHelper = new DBOpenHelper(this);
+        sdb = dbOpenHelper.getWritableDatabase();
 //        sharedPreferences = getSharedPreferences("myShared", MODE_PRIVATE);
 
         listView = findViewById(R.id.books_list);
@@ -132,6 +134,10 @@ public class MainActivity extends AppCompatActivity {
                 values.put(DBOpenHelper.COLUMN_PAGES, Integer.parseInt(etPages.getText().toString()));
                 sdb.insert(DBOpenHelper.DATABASE_TABLE, null, values);
                 Toast.makeText(getApplicationContext(), "Книга сохранена", Toast.LENGTH_SHORT).show();
+                etAuthor.setText("");
+                etName.setText("");
+                etGenre.setText("");
+                etPages.setText("");
 //                adapterListBooks.clear();
 //
 //                List<Book> list = new ArrayList<>();
@@ -193,9 +199,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(!sdb.isOpen())
+            sdb = dbOpenHelper.getWritableDatabase();
 //        //извлечение 1 записи по конкретному ключу
 //        String s = sharedPreferences.getString("book", "Не читал ничего");
 //        readBook.setText(s);
@@ -207,5 +215,11 @@ public class MainActivity extends AppCompatActivity {
 //            s = iterator.next().toString() + "\n\n";
 //            readBook.append(s);
 //        }
-//    }
     }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        sdb.close();
+    }
+}

@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         dbOpenHelper = new DBOpenHelper(this);
+        sdb = dbOpenHelper.getWritableDatabase();
 
         cost = findViewById(R.id.cost);
         article = findViewById(R.id.article);
