@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.mrx.indoorservice.api.IndoorService;
 import com.mrx.indoorservice.domain.model.BeaconsEnvironmentInfo;
-import com.mrx.indoorservice.domain.model.EnvironmentInfo;
 import com.mrx.indoorservice.domain.model.Point;
 import com.mrx.indoorservice.domain.model.PositionInfo;
 import com.mrx.indoorservice.domain.model.StateEnvironment;
@@ -105,10 +104,9 @@ public class MainActivity extends AppCompatActivity {
     };
 
     ArrayList stateEnvironment = new ArrayList(Arrays.asList(
-            new StateEnvironment("DF:6A:59:AE:F9:CC", new Point<>(0.0, 0.0)),
-            new StateEnvironment("D3:81:75:66:79:B8", new Point<>(10.0, 0.0)),
-            new StateEnvironment("E4:C1:3F:EF:49:D7", new Point<>(10.0, 10.0)),
-            new StateEnvironment("E6:96:DA:5C:82:59", new Point<>(0.0, 10.0))
+            new StateEnvironment("E4:C1:3F:EF:49:D7", new Point<>(0.0, 0.0)),
+            new StateEnvironment("CF:CA:06:0F:D0:F9", new Point<>(6.0, 1.0)),
+            new StateEnvironment("E6:96:DA:5C:82:59", new Point<>(6.5, -4.0))
     ));
 
     @Override
